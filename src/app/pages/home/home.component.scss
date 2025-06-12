@@ -1,66 +1,664 @@
+/* Hero Carousel Styles - FIXED */
 .hero-section {
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--accent-color)
-  );
-  min-height: 70vh;
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
 }
 
-.min-vh-50 {
-  min-height: 50vh;
+.carousel {
+  height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
 }
 
 .carousel-item {
-  transition: transform 0.6s ease-in-out;
+  height: 100%;
+  position: relative;
 }
 
+.carousel-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1; /* Fondo */
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Removemos las transiciones pesadas que causan lag */
+  filter: brightness(0.8);
+}
+
+/* Overlays con z-index correcto */
+.overlay-luxury,
+.overlay-energy,
+.overlay-personal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Encima de la imagen */
+}
+
+.overlay-luxury {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(220, 38, 38, 0.3) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+.overlay-energy {
+  background: linear-gradient(
+    45deg,
+    rgba(220, 38, 38, 0.5) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(239, 68, 68, 0.4) 100%
+  );
+}
+
+.overlay-personal {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(220, 38, 38, 0.4) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.carousel-caption-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 10; /* Encima de todo */
+  padding: 2rem 0;
+}
+
+.text-white-90 {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Hero Badge */
+.hero-badge {
+  display: inline-block;
+  background: rgba(220, 38, 38, 0.9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Pulse Button Effect - Optimizado */
+.pulse-btn {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+  }
+}
+
+/* Carousel Controls - Optimizados */
 .carousel-control-prev,
 .carousel-control-next {
-  width: 5%;
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  transition: opacity 0.2s ease; /* Transición más rápida */
+  z-index: 15; /* Encima de todo */
 }
 
-.card {
-  transition: all 0.3s ease;
-  border: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.carousel-control-prev {
+  left: 30px;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.carousel-control-next {
+  right: 30px;
 }
 
-.footer {
-  background: linear-gradient(135deg, var(--secondary-color), #1a252f);
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+  /* Removemos el scale que causa lag */
 }
 
-.fade-in {
-  animation: fadeInUp 1s ease-out;
+.carousel-control-icon-container {
+  width: 60px;
+  height: 60px;
+  background: rgba(220, 38, 38, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.2s ease; /* Solo cambio de color */
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+.carousel-control-icon-container:hover {
+  background: rgba(220, 38, 38, 1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.carousel-control-icon-container i {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  bottom: 30px;
+  margin-bottom: 0;
+  z-index: 15; /* Encima de todo */
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  margin: 0 8px;
+  transition: all 0.2s ease; /* Transición más rápida */
+}
+
+.carousel-indicators [data-bs-target].active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+/* Animaciones optimizadas */
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards; /* Más rápido */
+  opacity: 0;
+  transform: translateX(-30px); /* Menos distancia */
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.slide-in-up {
+  animation: slideInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 60vh;
+/* Carousel Fade Effect - Optimizado */
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out; /* Más rápido */
+}
+
+.carousel-fade .carousel-item.active {
+  opacity: 1;
+}
+
+/* Removemos animaciones pesadas que causan lag */
+.carousel-item.active .carousel-image {
+  /* Sin animaciones pesadas */
+}
+
+/* Service Cards */
+.service-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Más rápido */
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-5px); /* Menos movimiento */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Menos sombra */
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: transform 0.2s ease; /* Más rápido */
+}
+
+.service-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.05); /* Menos escala */
+}
+
+/* Location Cards */
+.location-card {
+  transition: transform 0.2s ease; /* Más rápido */
+  border-left: 4px solid var(--primary-color);
+}
+
+.location-card:hover {
+  transform: translateX(3px); /* Menos movimiento */
+}
+
+/* Map Container - SIMPLE MAP */
+.map-container-real {
+  height: 400px;
+  width: 100%;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.simple-map {
+  height: 100%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.map-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.map-header h5 {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin: 0;
+}
+
+.locations-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  justify-content: center;
+}
+
+.location-marker {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--primary-color);
+}
+
+.location-marker:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.marker-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.marker-icon.norte {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+.marker-icon.centro {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+.marker-icon.sur {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.marker-info {
+  flex: 1;
+}
+
+.marker-info strong {
+  display: block;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+
+.marker-info small {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.map-background {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.city-outline {
+  color: var(--primary-color);
+}
+
+.map-card {
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Stats - FIXED */
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(white);
+  line-height: 1;
+  display: block;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+/* Footer Enhancements */
+.social-link {
+  transition: color 0.2s ease, transform 0.2s ease; /* Más rápido */
+  display: inline-block;
+}
+
+.social-link:hover {
+  color: var(--primary-color) !important;
+  transform: translateY(-1px); /* Menos movimiento */
+}
+
+.footer-link {
+  transition: color 0.2s ease, padding-left 0.2s ease; /* Más rápido */
+}
+
+.footer-link:hover {
+  color: var(--primary-color) !important;
+  padding-left: 3px; /* Menos movimiento */
+}
+
+.pqr-card {
+  transition: transform 0.2s ease; /* Más rápido */
+}
+
+.pqr-card:hover {
+  transform: translateY(-1px); /* Menos movimiento */
+}
+
+/* Mobile Responsive */
+@media (max-width: 767.98px) {
+  .map-container-real {
+    height: 350px;
   }
 
-  .display-4 {
-    font-size: 2rem;
+  .simple-map {
+    padding: 15px;
+  }
+
+  .locations-grid {
+    gap: 10px;
+  }
+
+  .location-marker {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .marker-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .marker-info strong {
+    font-size: 1rem;
+  }
+
+  .marker-info small {
+    font-size: 0.8rem;
+  }
+
+  .hero-section {
+    height: 70vh;
+    min-height: 500px;
+  }
+
+  .carousel-caption-custom {
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .carousel-caption-custom h1 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-caption-custom .lead {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 45px;
+    height: 45px;
+  }
+
+  .carousel-control-prev {
+    left: 15px;
+  }
+
+  .carousel-control-next {
+    right: 15px;
+  }
+
+  .carousel-control-icon-container {
+    width: 45px;
+    height: 45px;
+  }
+
+  .carousel-control-icon-container i {
+    font-size: 1rem;
+  }
+
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    margin: 0 6px;
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .service-icon i {
+    font-size: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-section {
+    height: 60vh;
+    min-height: 450px;
+  }
+
+  .carousel-caption-custom h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .carousel-caption-custom .lead {
+    font-size: 0.95rem;
   }
 
   .btn-lg {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
     font-size: 1rem;
+  }
+}
+
+/* Tablet Responsive */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-section {
+    height: 80vh;
+    min-height: 550px;
+  }
+
+  .carousel-caption-custom h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .hero-section {
+    height: 100vh;
+    min-height: 700px;
+  }
+
+  .carousel-caption-custom h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+  }
+
+  .carousel-caption-custom .lead {
+    font-size: 1.25rem;
+  }
+}
+
+/* Removemos animaciones pesadas que causan lag */
+/* Parallax Effect - REMOVIDO para mejor performance */
+
+/* Accessibility - Respeta las preferencias del usuario */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-image,
+  .slide-in-left,
+  .slide-in-right,
+  .slide-in-up,
+  .pulse-btn,
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .carousel-item.active .carousel-image {
+    transform: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .overlay-luxury,
+  .overlay-energy,
+  .overlay-personal {
+    background: rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .carousel-control-icon-container {
+    background: rgba(0, 0, 0, 0.9) !important;
+    border-color: white !important;
   }
 }

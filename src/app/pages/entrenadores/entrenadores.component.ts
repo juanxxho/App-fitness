@@ -35,7 +35,7 @@ interface Entrenador {
           </div>
           <div class="col-lg-6">
             <img
-              src="/placeholder.svg?height=300&width=500"
+              src="https://www.shutterstock.com/image-photo/indoor-personal-cardio-training-gym-600nw-1822207589.jpg"
               alt="Equipo de entrenadores"
               class="img-fluid rounded"
             />
@@ -100,6 +100,7 @@ interface Entrenador {
                 [src]="entrenador.imagen"
                 [alt]="entrenador.nombre"
                 class="card-img-top"
+                style="object-fit: cover; object-position: top; width: 100%; height: 300px;"
               />
               <div class="card-body">
                 <div
@@ -178,7 +179,7 @@ interface Entrenador {
               <div class="card-footer bg-transparent">
                 <div class="d-flex align-items-center">
                   <img
-                    src="/placeholder.svg?height=50&width=50"
+                    src="https://i.pinimg.com/736x/ab/48/f1/ab48f186dc489030ba8e2f6911e928f6.jpg"
                     alt="Cliente"
                     class="rounded-circle me-3"
                     width="50"
@@ -212,7 +213,7 @@ interface Entrenador {
               <div class="card-footer bg-transparent">
                 <div class="d-flex align-items-center">
                   <img
-                    src="/placeholder.svg?height=50&width=50"
+                    src="https://i.pinimg.com/736x/d9/7e/2f/d97e2fe552e8b825fea8839fe53f392e.jpg"
                     alt="Cliente"
                     class="rounded-circle me-3"
                     width="50"
@@ -246,7 +247,7 @@ interface Entrenador {
               <div class="card-footer bg-transparent">
                 <div class="d-flex align-items-center">
                   <img
-                    src="/placeholder.svg?height=50&width=50"
+                    src="https://i.pinimg.com/736x/4f/2e/ca/4f2eca320b404c7a602d7c2dd356fd3c.jpg"
                     alt="Cliente"
                     class="rounded-circle me-3"
                     width="50"
@@ -296,7 +297,7 @@ interface Entrenador {
           </div>
           <div class="col-lg-6">
             <img
-              src="/placeholder.svg?height=400&width=500"
+              src="https://i.pinimg.com/736x/5d/0c/17/5d0c17a15762dcf2eb6cef2d07318ac9.jpg"
               alt="Únete a nuestro equipo"
               class="img-fluid rounded"
             />
@@ -319,7 +320,8 @@ export class EntrenadoresComponent implements OnInit {
       experiencia: 8,
       descripcion:
         'Especialista en hipertrofia y fuerza. Campeón nacional de culturismo 2019.',
-      imagen: '/placeholder.svg?height=300&width=300',
+      imagen:
+        'https://i.pinimg.com/736x/63/2b/6a/632b6a58fa0da953a9281af6476679da.jpg',
       disponibilidad: ['Lunes', 'Martes', 'Jueves', 'Viernes'],
       calificacion: 4.9,
     },
@@ -330,7 +332,8 @@ export class EntrenadoresComponent implements OnInit {
       experiencia: 6,
       descripcion:
         'Instructora certificada de Hatha y Vinyasa Yoga con enfoque en mindfulness.',
-      imagen: '/placeholder.svg?height=300&width=300',
+      imagen:
+        'https://i.pinimg.com/736x/4b/99/4c/4b994ca5896976bc28b5e26d647decab.jpg',
       disponibilidad: ['Lunes', 'Miércoles', 'Viernes', 'Sábado'],
       calificacion: 4.8,
     },
@@ -341,7 +344,8 @@ export class EntrenadoresComponent implements OnInit {
       experiencia: 10,
       descripcion:
         'Nutricionista deportivo con maestría en nutrición clínica y deportiva.',
-      imagen: '/placeholder.svg?height=300&width=300',
+      imagen:
+        'https://i.pinimg.com/736x/ba/6a/57/ba6a5740e69b424afc3c8c075fe55634.jpg',
       disponibilidad: ['Martes', 'Miércoles', 'Jueves', 'Sábado'],
       calificacion: 4.7,
     },
@@ -352,7 +356,8 @@ export class EntrenadoresComponent implements OnInit {
       experiencia: 5,
       descripcion:
         'Especialista en entrenamiento HIIT y pérdida de peso. Maratonista.',
-      imagen: '/placeholder.svg?height=300&width=300',
+      imagen:
+        'https://i.pinimg.com/736x/f8/aa/62/f8aa629d61b8005d2c323c2d4a056c38.jpg',
       disponibilidad: ['Lunes', 'Miércoles', 'Viernes', 'Domingo'],
       calificacion: 4.6,
     },
@@ -363,7 +368,8 @@ export class EntrenadoresComponent implements OnInit {
       experiencia: 7,
       descripcion:
         'Entrenador certificado de CrossFit nivel 3 y ex-atleta profesional.',
-      imagen: '/placeholder.svg?height=300&width=300',
+      imagen:
+        'https://i.pinimg.com/736x/67/7c/51/677c51d80ba826e13b02f52880a06277.jpg',
       disponibilidad: ['Martes', 'Jueves', 'Sábado', 'Domingo'],
       calificacion: 4.9,
     },
@@ -374,7 +380,8 @@ export class EntrenadoresComponent implements OnInit {
       experiencia: 9,
       descripcion:
         'Especialista en entrenamiento para mujeres y preparadora física.',
-      imagen: '/placeholder.svg?height=300&width=300',
+      imagen:
+        'https://i.pinimg.com/736x/61/75/05/6175055a98b055384d26c112dcffdc8b.jpg',
       disponibilidad: ['Lunes', 'Martes', 'Jueves', 'Viernes'],
       calificacion: 4.8,
     },

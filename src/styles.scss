@@ -1,6 +1,6 @@
 /* Global Styles - Nueva paleta: Negro, Rojo, Blanco */
 :root {
-  --primary-color: #42bbe0; /* Rojo */
+  --primary-color: #42bbe0; /* Azul claro */
   --secondary-color: #1f2937; /* Gris oscuro */
   --accent-color: #5e1515; /* Rojo claro */
   --text-color: #111827; /* Negro */
@@ -11,9 +11,9 @@
 }
 
 [data-theme="dark"] {
-  --primary-color: #423232; /* Rojo */
+  --primary-color: #793e3e; /* Rojo */
   --secondary-color: #111827; /* Negro */
-  --accent-color: #ef4444; /* Rojo claro */
+  --accent-color: #a74040; /* Rojo claro */
   --text-color: #f9fafb; /* Blanco */
   --bg-color: #000000; /* Negro puro */
   --card-bg: #1f2937; /* Gris oscuro */

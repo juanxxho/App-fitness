@@ -10,13 +10,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { DOCUMENT } from '@angular/common';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 declare var google: any;
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FooterComponent],
   template: `
     <!-- Hero Section with Carousel -->
     <section class="hero-section p-0">
@@ -467,222 +468,8 @@ declare var google: any;
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-5 cta-section">
-      <div class="container text-center">
-        <h2 class="display-5 fw-bold mb-4 text-white">¿Listo para comenzar?</h2>
-        <p class="lead mb-4 text-white-90">
-          Únete a miles de personas que ya transformaron su vida con nosotros
-        </p>
-        <div class="d-flex justify-content-center gap-3 mobile-stack">
-          <button
-            class="btn btn-light btn-lg mobile-full-width shadow-lg"
-            routerLink="/ofertas"
-          >
-            <i class="fas fa-tags me-2"></i>Ver Planes
-          </button>
-          <button
-            class="btn btn-outline-light btn-lg mobile-full-width"
-            routerLink="/perfil"
-          >
-            <i class="fas fa-user-plus me-2"></i>Crear Perfil
-          </button>
-        </div>
-      </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="footer py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 mb-4">
-            <h5 class="text-white mb-3">
-              <i class="fas fa-dumbbell me-2"></i>FitnessPro
-            </h5>
-            <p class="text-light">
-              Tu centro de entrenamiento de confianza. Transformamos vidas a
-              través del fitness y el bienestar integral.
-            </p>
-            <div class="d-flex gap-3">
-              <a
-                href="#"
-                class="text-light social-link"
-                onclick="alert('Síguenos en Facebook')"
-              >
-                <i class="fab fa-facebook fa-lg"></i>
-              </a>
-              <a
-                href="#"
-                class="text-light social-link"
-                onclick="alert('Síguenos en Instagram')"
-              >
-                <i class="fab fa-instagram fa-lg"></i>
-              </a>
-              <a
-                href="#"
-                class="text-light social-link"
-                onclick="alert('Síguenos en Twitter')"
-              >
-                <i class="fab fa-twitter fa-lg"></i>
-              </a>
-              <a
-                href="#"
-                class="text-light social-link"
-                onclick="alert('Suscríbete a nuestro canal')"
-              >
-                <i class="fab fa-youtube fa-lg"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-6 mb-4">
-            <h6 class="text-white mb-3">Servicios</h6>
-            <ul class="list-unstyled">
-              <li>
-                <a
-                  href="#"
-                  class="text-light text-decoration-none footer-link"
-                  onclick="alert('Información sobre entrenamiento personal')"
-                  >Entrenamiento Personal</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-light text-decoration-none footer-link"
-                  onclick="alert('Información sobre clases grupales')"
-                  >Clases Grupales</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-light text-decoration-none footer-link"
-                  onclick="alert('Información sobre nutrición')"
-                  >Nutrición</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-light text-decoration-none footer-link"
-                  onclick="alert('Información sobre fisioterapia')"
-                  >Fisioterapia</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-md-6 mb-4">
-            <h6 class="text-white mb-3">Enlaces</h6>
-            <ul class="list-unstyled">
-              <li>
-                <a
-                  routerLink="/ofertas"
-                  class="text-light text-decoration-none footer-link"
-                  >Ofertas</a
-                >
-              </li>
-              <li>
-                <a
-                  routerLink="/entrenadores"
-                  class="text-light text-decoration-none footer-link"
-                  >Entrenadores</a
-                >
-              </li>
-              <li>
-                <a
-                  routerLink="/calculadora"
-                  class="text-light text-decoration-none footer-link"
-                  >Calculadoras</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-light text-decoration-none footer-link"
-                  onclick="alert('Blog próximamente')"
-                  >Blog</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 mb-4">
-            <h6 class="text-white mb-3">Contacto y PQR</h6>
-            <div class="mb-2">
-              <i class="fas fa-phone me-2"></i>
-              <a
-                href="tel:+5716011234567"
-                class="text-light text-decoration-none"
-                >(601) 123-4567</a
-              >
-            </div>
-            <div class="mb-2">
-              <i class="fas fa-envelope me-2"></i>
-              <a
-                href="mailto:info@fitnesspro.com"
-                class="text-light text-decoration-none"
-                >info&#64;fitnesspro.com</a
-              >
-            </div>
-            <div class="mb-3">
-              <i class="fas fa-map-marker-alt me-2"></i>
-              <span class="text-light">Bogotá, Colombia</span>
-            </div>
-
-            <div class="card bg-dark border-secondary pqr-card">
-              <div class="card-body">
-                <h6 class="card-title text-white">
-                  PQR - Peticiones, Quejas y Reclamos
-                </h6>
-                <p class="card-text text-light small">
-                  Para peticiones, quejas o reclamos, contáctanos:
-                </p>
-                <div class="d-flex gap-2 mobile-stack">
-                  <button
-                    class="btn btn-outline-light btn-sm mobile-full-width"
-                    onclick="window.location.href='mailto:pqr@fitnesspro.com'"
-                  >
-                    <i class="fas fa-envelope me-1"></i>Email
-                  </button>
-                  <button
-                    class="btn btn-outline-light btn-sm mobile-full-width"
-                    onclick="window.location.href='tel:+5716011234567'"
-                  >
-                    <i class="fas fa-phone me-1"></i>Llamar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr class="my-4 bg-light" />
-
-        <div class="row align-items-center">
-          <div class="col-md-6 text-center text-md-start">
-            <p class="text-light mb-0">
-              &copy; 2024 FitnessPro. Todos los derechos reservados.
-            </p>
-          </div>
-          <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
-            <a
-              href="#"
-              class="text-light text-decoration-none footer-link me-3"
-              onclick="alert('Términos y condiciones próximamente')"
-              >Términos y Condiciones</a
-            >
-            <a
-              href="#"
-              class="text-light text-decoration-none footer-link"
-              onclick="alert('Política de privacidad próximamente')"
-              >Política de Privacidad</a
-            >
-          </div>
-        </div>
-      </div>
-    </footer>
+    <app-footer></app-footer>
   `,
   styleUrls: ['./home.component.scss'],
 })
